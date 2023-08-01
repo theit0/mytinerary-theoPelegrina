@@ -1,7 +1,10 @@
-import {logo} from '../assets/logoMyTinerary.png'
+import logo from '../assets/logoMyTinerary.png'
+import '../styled-components/Logo.css'
 
-export function Logo() {
+export default function Logo() {
   return (
-    <img src={logo} alt='MyTinerary logo'/>
+    <a href='#'>
+      <img className='logo' src={logo} alt='MyTinerary logo'/>
+    </a>
   )
 }

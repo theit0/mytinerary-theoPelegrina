@@ -1,11 +1,15 @@
 import '../styled-components/Navbar.css'
 import Logo from './Logo'
- 
+import Nav from './Nav'
 
-export function Navbar () {
-    return (
-        <header>
-            <p>asdas</p>
-        </header>
-    )
+function Navbar() {
+  
+  return (
+    <header>
+      <Logo/>
+      <Nav/>
+    </header>
+  )
 }
+
+export default Navbar
