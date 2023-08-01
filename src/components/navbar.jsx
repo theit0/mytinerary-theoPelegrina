@@ -1,10 +1,10 @@
-import '../styled-components/navbar.css'
+import '../styled-components/Navbar.css'
  
 
-export function navbar () {
+export function Navbar () {
     return (
         <>
-            
+
         </>
     )
 }
