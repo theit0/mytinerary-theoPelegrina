@@ -1,23 +1,23 @@
 import '../styled-components/Hero.css'
 import Button from '../components/Button'
-import openedEye from '../assets/eye-fill-opened.svg'
+import Title from './Title'
+import CoverPhoto from '../assets/middle-eastern-building.jpg'
 
 const Hero = () => {
   return (
-      <>{
-        /* <section>
-            <div>
-                <h1>Find the perfect destination.</h1>
-                <span>
-                    Our app will help you find the perfect path for your next trip. With an easy-to-use 
-                    interface and a host of itinerary options, planning your next trip has never been easier.
-                </span>
-                <div>
-                  <Button content='View more'/>
-                </div>
-            </div>
-        </section> */
-    }</>
+    <section className='hero-section'>
+        <div className='hero-text'>
+            <Title content='Find the perfect destination.' />
+            <span className='subtitle'>
+                Our app will help you find the perfect path for your next trip. With an easy-to-use 
+                interface and a host of itinerary options, planning your next trip has never been easier.
+            </span>
+            <Button content='View more'/>
+        </div>
+        <div className='cover-container'>
+          <img className='cover-photo' src={CoverPhoto} alt='middle eastern building'/>
+        </div>
+    </section> 
   )
 }
 
