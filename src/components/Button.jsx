@@ -1,9 +1,10 @@
 import '../styled-components/Button.css'
 
-const Button = ({content,icon}) => {
+
+const Button = ({content,children}) => { 
   return (
     <button className='button'>
-        <img src={icon}/>
+        {children}
         {content}
     </button>
   )

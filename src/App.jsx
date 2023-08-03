@@ -2,6 +2,7 @@ import './App.css'
 import { Main } from './layouts/Main'
 import { Index } from './pages/Index'
 
+
 function App() {
   return (
     <>

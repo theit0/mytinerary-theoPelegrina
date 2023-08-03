@@ -12,14 +12,18 @@ const Nav = () => {
 
     return (
         <nav>
-            {
-                links.map((link)=>{
-                    return(
-                        <Link content={link.content} to={link.to}/>
-                    )
-                }) 
-            }
-            <Button icon={userSVG} content='Login'/>
+            <div>
+                {
+                    links.map((link)=>{
+                        return(
+                            <Link content={link.content} to={link.to}/>
+                        )
+                    }) 
+                }
+            </div>
+            <Button content='Login'>
+                <img src={userSVG}/>
+            </Button>
         </nav>
     )
 }
