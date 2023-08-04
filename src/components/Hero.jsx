@@ -18,6 +18,7 @@ const Hero = () => {
           <img className='cover-photo' src={CoverPhoto} alt='middle eastern building'/>
         </div>
     </section> 
+    
   )
 }
 

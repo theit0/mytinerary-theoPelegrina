@@ -1,64 +1,27 @@
-.carousel{
-    background-color: bisque;
-    list-style: none;
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: calc((100% / 4));
-    z-index: -1;
-    overflow: hidden;
-}
 
 .wrapper{
     position: relative;
-    max-width: 1120px;
-    width: 100%;
+    width: 85vw;
+    padding: 0 1rem;
 }
 
-.wrapper .arrow{
-    height: 40px;
-    width: 40px;
-    padding: .75rem;
-    background:white;
-    text-align: center;
-    border-radius: 50%;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.23);
-    z-index: 1;
+
+.slide-container{
+    display: flex !important;
+    justify-content: center;
 }
 
-.wrapper .arrow:first-child{
-    left: -22px;
+.slick-next:before,.slick-prev:before{
+    color: black !important;
 }
-.wrapper .arrow:last-child{
-    right: -22px;
-}
-
-@media (max-width:1350px){
-    .carousel{
-        grid-auto-columns: calc((100% / 3));
-    }
-    .wrapper{
-        max-width: 840px;
-    }
+.slick-prev.slick-disabled:before, .slick-next.slick-disabled:before {
+    opacity: 1 !important;
 }
 
-@media (max-width:950px){
-    .wrapper{
-        max-width: 550px;
-    }
-    .carousel{
-        grid-auto-columns: calc((100% / 2));
-    }
+.slick-dots {
+    bottom: -30px !important;
 }
 
-@media (max-width:950px){
-    .wrapper{
-        max-width: 280px;
-    }
-    .carousel{
-        grid-auto-columns: 100%;
-    }
+.slick-dots li button:before {
+    font-size: 10px !important;
 }

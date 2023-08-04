@@ -11,10 +11,12 @@ import img9 from '../assets/apartments-overlooking-a-canal.jpg'
 import Card from './Card'
 import ArrowLeft from '../assets/chevron-left.svg'
 import ArrowRight from '../assets/chevron-right.svg'
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import Slider from 'react-slick'
 
 
 const Carousel = () => {
-
     const images = [
         {img: img1 , content:'Tokyo, Japan'},
         {img: img2 , content:'New York, USA'},
@@ -26,24 +28,57 @@ const Carousel = () => {
         {img: img8 , content:'Buenos Aires, Argentina'},
         {img: img9 , content:'Vienna, Austria'},
     ]
-
-    
+    const settings = {
+      dots: true,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      initialSlide: 0,
+      responsive: [
+        {
+          breakpoint: 1400,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 1050,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2
+          }
+        },
+        {
+          breakpoint: 700,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    };
 
     return (
         <div className='wrapper'>
-            <img src={ArrowLeft} className='arrow'/>
-            <ul className='carousel'>
+            <Slider {...settings}>
                 {
-                    images.map(image => {
-                       return(
+                  images.map(image => {
+                      return(
+                        <div className='slide-container'>
                             <Card img={image.img} content={image.content}/>
-                       ) 
-                    })
+                        </div>
+                      ) 
+                  })
                 }
-            </ul>
-            <img src={ArrowRight} className='arrow'/>
-        </div>
-    )
+            </Slider>
+        </div> 
+        
+      )
 }
 
 export default Carousel
