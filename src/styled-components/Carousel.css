@@ -1,10 +1,8 @@
-
 .wrapper{
     position: relative;
-    width: 85vw;
-    padding: 0 1rem;
+    width: 63vw;
+    padding: 1rem;
 }
-
 
 .slide-container{
     display: flex !important;
@@ -25,3 +23,24 @@
 .slick-dots li button:before {
     font-size: 10px !important;
 }
+
+.slick-next::before, .slick-prev::before {
+    color: #ff5722 !important;
+}
+
+.slick-prev::before, .slick-next::before {
+    font-size: 25px !important;
+}
+
+@media (max-width:700px){
+    .slick-dots li {
+        margin: 0 2.5px !important;
+    }
+
+    .wrapper{
+        width: 90vw;
+    }
+}
+
+
+
