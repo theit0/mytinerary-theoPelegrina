@@ -1,0 +1,17 @@
+.popular-container{
+    display: grid;
+    place-content: center;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+
+
+.popular-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0;
+}
