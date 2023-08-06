@@ -20,9 +20,15 @@ export function Footer() {
         <footer>
 
             <div className='footer-links'>
-                <Link content='Terms of service' href='/terms-of-service'/>
-                <Link content='Privacy Policy' href='/privacy-policy'/>
-                <Link content='Sitemap' href='/sitemap'/>
+                <div className='footer-policies'>
+                    <Link content='Terms of service' to='/terms-of-service'/>
+                    <Link content='Privacy Policy' to='/privacy-policy'/>
+                    <Link content='Sitemap' to='https://www.google.com/maps/?hl=es'/>
+                </div>
+                <div className='footer-menu'>
+                    <Link content='Go home' href='/home'/>
+                    <Link content='Cities' href='/cities'/>
+                </div>
             </div>
 
             <div className='footer-socials'>
