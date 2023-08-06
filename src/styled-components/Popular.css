@@ -4,7 +4,9 @@
     text-align: center;
     padding: 0 1rem;
 }
-
+.popular-container span{
+    padding: 0 .5rem;
+}
 
 
 .popular-section{
