@@ -1,7 +1,7 @@
 import '../styled-components/Carousel.css'
-import img1 from '../assets/a-man-brushes-ferns-out-of-his-path-in-a-botanical-space.jpg'
-import img2 from '../assets/desert-wanderer.jpg'
-import img3 from '../assets/middle-eastern-building.jpg'
+import img1 from '../assets/commuters-on-the-streets-of-neon-tokyo.jpg'
+import img2 from '../assets/un-ending-new-york-skyline.jpg'
+import img3 from '../assets/telephone-booth-in-london-england.jpg'
 import img4 from '../assets/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg'
 import img5 from '../assets/tourists-visit-an-intricate-structure.jpg'
 import img6 from '../assets/camels-resting.jpg'
@@ -22,11 +22,11 @@ const Carousel = () => {
     const images = [
         {img: img1 , content:'Tokyo, Japan'},
         {img: img2 , content:'New York, USA'},
-        {img: img4 , content:'London, England'},
-        {img: img5 , content:'Seoul, South Korea'},
+        {img: img3 , content:'London, England'},
         {img: img6 , content:'Nueva Delhi, India'},
-        {img: img3 , content:'Baku, Azerbaijan'},
         {img: img7 , content:'Paris, France'},
+        {img: img5 , content:'Seoul, South Korea'},
+        {img: img4 , content:'Baku, Azerbaijan'},
         {img: img8 , content:'Buenos Aires, Argentina'},
         {img: img9 , content:'Vienna, Austria'},
         {img: img10 , content:'Havana, Cuba'},
@@ -36,11 +36,14 @@ const Carousel = () => {
     ]
     const settings = {
       dots: true,
-      infinite: false,
+      infinite: true,
       speed: 500,
       slidesToShow: 4,
       slidesToScroll: 4,
       initialSlide: 0,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      pauseOnHover: true,
       responsive: [
         {
           breakpoint: 1920,

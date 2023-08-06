@@ -34,11 +34,15 @@
 
 @media (max-width:700px){
     .slick-dots li {
-        margin: 0 2.5px !important;
+        margin: 0px !important;
     }
 
     .wrapper{
         width: 90vw;
+    }
+
+    .slick-next, .slick-prev {
+        display: none!important;
     }
 }
 

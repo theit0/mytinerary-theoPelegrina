@@ -25,6 +25,8 @@
     pointer-events: none;
 }
 
+
+
 .card-container:hover span {
     transform: translateY(40px);
 }
@@ -38,6 +40,4 @@
     height: 100%;
     object-fit: cover;
 }
-
-
 
