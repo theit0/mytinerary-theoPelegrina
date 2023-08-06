@@ -42,7 +42,7 @@ const Carousel = () => {
       slidesToScroll: 4,
       initialSlide: 0,
       autoplay: true,
-      autoplaySpeed: 3000,
+      autoplaySpeed: 2000,
       pauseOnHover: true,
       responsive: [
         {
