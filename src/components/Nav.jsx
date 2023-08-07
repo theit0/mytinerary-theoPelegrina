@@ -13,7 +13,7 @@ const Nav = () => {
     const linksClassName = toggled ? 'links toggled' : 'links';
 
     const links = [
-        {content:'Home',to:'/home'},
+        {content:'Home',to:'/'},
         {content:'Cities',to:'/cities'},
     ]
 
@@ -29,7 +29,7 @@ const Nav = () => {
                         }) 
                     }
                 </div>
-                <Button content='Login'>
+                <Button content='Login' to='/login'>
                     <img src={userSVG}/>
                 </Button>
             </div>
