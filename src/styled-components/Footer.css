@@ -39,6 +39,7 @@ footer {
 
 @media (max-width:800px){
     .footer-links{
+        padding-bottom: .5rem;
         display: block;
     }
     .footer-menu{
@@ -64,6 +65,7 @@ footer {
     footer {
         flex-direction: column;
         gap: 1rem;
+        padding-bottom: .5rem;
     }
 }
 
