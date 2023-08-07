@@ -1,0 +1,43 @@
+.card-container{
+    position: relative; 
+    width: 280px;
+    height: 405px;
+}
+
+.card-container span {
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+    font-weight: 500;
+    color: white;
+    transition:.2s;
+}
+
+.card-container:before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(rgba(255,255,255,0),rgba(0,0,0,0.75));
+    transition: opacity .5s; 
+    pointer-events: none;
+}
+
+
+
+.card-container:hover span {
+    transform: translateY(40px);
+}
+
+.card-container:hover:before {
+    opacity: 0; 
+}
+
+.card-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
