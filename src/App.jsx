@@ -1,14 +1,11 @@
-import './App.css'
-import { Main } from './layouts/Main'
-import { Index } from './pages/Index'
-
+import {RouterProvider} from 'react-router-dom'
+import router from './router/router'
+import '../src/App.css'
 
 function App() {
   return (
     <>
-      <Main>
-          <Index/>
-      </Main>
+      <RouterProvider router={router}/>
     </>
   )
 }

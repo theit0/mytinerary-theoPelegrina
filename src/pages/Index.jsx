@@ -9,3 +9,5 @@ export function Index () {
         </>
     )
 }
+
+export default Index

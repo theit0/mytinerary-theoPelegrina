@@ -5,7 +5,6 @@ import Instagram from '../assets/instagram.svg'
 import Tiktok from '../assets/tiktok.svg'
 import Youtube from '../assets/youtube.svg'
 import Social from './Social'
-
 export function Footer() {
   
     const socials = [
@@ -26,8 +25,8 @@ export function Footer() {
                     <Link content='Sitemap' to='https://www.google.com/maps/?hl=es'/>
                 </div>
                 <div className='footer-menu'>
-                    <Link content='Go home' href='/home'/>
-                    <Link content='Cities' href='/cities'/>
+                    <Link content='Go home' to='/'/>
+                    <Link content='Cities' to='/cities'/>
                 </div>
             </div>
 
