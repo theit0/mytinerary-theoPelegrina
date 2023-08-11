@@ -9,7 +9,6 @@ const Button = ({content,children,to}) => {
             {content}
         </button>
     </Link>
-    
   )
 }
 

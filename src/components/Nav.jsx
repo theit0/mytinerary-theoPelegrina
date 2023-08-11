@@ -1,4 +1,4 @@
-import Link from './Link'
+import Linker from './Linker'
 import '../styled-components/Nav.css'
 import userSVG from '../assets/user.svg'
 import Button from '../components/Button'
@@ -24,7 +24,7 @@ const Nav = () => {
                     {
                         links.map((link, index)=>{
                             return(
-                                <Link key={index} content={link.content} to={link.to}/>
+                                <Linker key={index} content={link.content} to={link.to}/>
                             )
                         }) 
                     }

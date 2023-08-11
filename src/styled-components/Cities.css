@@ -11,10 +11,6 @@
     gap: 1rem;
 }
 
-.slick-next::before, .slick-prev::before {
-    display: none;
-}
-
 .cities-title-container{
     text-align: center;
     display: grid;

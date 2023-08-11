@@ -71,7 +71,7 @@ const Cities = () => {
         <span>Collection of the most beautiful places and experience.</span>
       </div>
       
-      <div className='cards-container'>
+      {/* <div className='cards-container'>
         <Slider {...settings} >
           {
             data.map((city) => {
@@ -81,7 +81,7 @@ const Cities = () => {
             })
           }
         </Slider>
-      </div>
+      </div> */}
     </div>
     
     

@@ -1,5 +1,5 @@
 import '../styled-components/Footer.css'
-import Link from '../components/Link'
+import Linker from '../components/Linker'
 import Facebook from '../assets/facebook.svg'
 import Instagram from '../assets/instagram.svg'
 import Tiktok from '../assets/tiktok.svg'
@@ -20,13 +20,13 @@ export function Footer() {
 
             <div className='footer-links'>
                 <div className='footer-policies'>
-                    <Link content='Terms of service' to='/terms-of-service'/>
-                    <Link content='Privacy Policy' to='/privacy-policy'/>
-                    <Link content='Sitemap' to='https://www.google.com/maps/?hl=es'/>
+                    <Linker content='Terms of service' to='/terms-of-service'/>
+                    <Linker content='Privacy Policy' to='/privacy-policy'/>
+                    <Linker content='Sitemap' to='https://www.google.com/maps/?hl=es'/>
                 </div>
                 <div className='footer-menu'>
-                    <Link content='Go home' to='/'/>
-                    <Link content='Cities' to='/cities'/>
+                    <Linker content='Go home' to='/'/>
+                    <Linker content='Cities' to='/cities'/>
                 </div>
             </div>
 
