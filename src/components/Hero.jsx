@@ -13,7 +13,7 @@ const Hero = () => {
                 Our app will help you find the perfect path for your next trip. With an easy-to-use 
                 interface and a host of itinerary options, planning your next trip has never been easier.
             </span>
-             <Button content='View more' to='/cities'/>
+            <Button content='View more' to='/cities'/>
         </div>
         <div className='cover-container'>
           <img className='cover-photo' src={CoverPhoto} alt='middle eastern building'/>
