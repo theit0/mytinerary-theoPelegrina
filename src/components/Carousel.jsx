@@ -6,6 +6,7 @@ import Slider from 'react-slick'
 import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import Loading from './Loading';
 
 
 const Carousel = () => {
@@ -20,7 +21,7 @@ const Carousel = () => {
         };
         axios.get('http://localhost:3000/api/cities',configs)
         .then(response => {
-          setData(response.data.slice(0,12))
+          setData(response.data.cities.slice(0,12))
         })
         .catch(err => {
           console.log(err)
@@ -68,7 +69,7 @@ const Carousel = () => {
     return (
         <div className='wrapper'>
             <Slider {...settings}>
-                {
+                { data ? (
                   data.map(city => {
                       return(
                         <div className='slide-container'>
@@ -76,7 +77,9 @@ const Carousel = () => {
                         </div>
                       ) 
                   })
-                }
+                ) : (
+                  <Loading/>
+                )}
             </Slider>
         </div> 
         

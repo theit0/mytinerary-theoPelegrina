@@ -1,19 +1,28 @@
-.cards-container{
-    width: 63vw;
-    padding: 1rem;
-}
+
 .cities-container{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
-    gap: 1rem;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 .cities-title-container{
-    text-align: center;
-    display: grid;
-    place-content: center;
-    gap: .5rem;
+    max-height: 60vh;
 }
+
+
+.cities-title-container h1{
+    font-size: 40vw;
+    line-height: 0.55;
+}
+/* font-size: 700px; */
+.cities-cards-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.cities-cards-container div{
+    flex-grow: 1;
+}
+
