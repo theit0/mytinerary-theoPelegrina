@@ -6,7 +6,6 @@ import Slider from 'react-slick'
 import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import Loading from './Loading';
 
 
 const Carousel = () => {
@@ -69,7 +68,7 @@ const Carousel = () => {
     return (
         <div className='wrapper'>
             <Slider {...settings}>
-                { data ? (
+                {
                   data.map(city => {
                       return(
                         <div className='slide-container'>
@@ -77,9 +76,7 @@ const Carousel = () => {
                         </div>
                       ) 
                   })
-                ) : (
-                  <Loading/>
-                )}
+                }
             </Slider>
         </div> 
         

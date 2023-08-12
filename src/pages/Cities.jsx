@@ -2,10 +2,9 @@ import { useState } from 'react'
 import '../styled-components/Cities.css'
 import { useEffect } from 'react';
 import axios from 'axios';
-import Card from '../components/Card'
-import Slider from "react-slick";
 import Title from '../components/Title'
 import CityCard from '../components/CityCard';
+import zoom from '../assets/zoom-filled.svg'
 
 const Cities = () => {
 
@@ -31,9 +30,13 @@ const Cities = () => {
     <div className='cities-container'>
       <div className='cities-title-container'>
         <Title content='Cities'/>
+        <div className='search-container'>
+          <input type='text' className='search-input' placeholder='SEARCH FOR CITIES&#128269;'/>
+        </div>
       </div>
-      
+
       <div className='cities-cards-container'>
+          
           {
             data.map((city,index) => {
               return(

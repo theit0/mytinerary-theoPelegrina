@@ -17,7 +17,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/cities',
-                element:<Cities/>
+                element:<Cities/>,
             },
             {
                 path:'/cities/:id',

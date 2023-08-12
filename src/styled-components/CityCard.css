@@ -14,9 +14,15 @@
 }
 
 .city-card-container a button{
-    background-color: white;
-    border: 1px solid white;
+    background-color: #ff5722;
+    border: 1px solid #ff5722;
+    color: white;
     border-radius: 0;
+}
+
+.city-card-container a button:hover{
+    background-color: #a43918;
+    border: 1px solid #a43918;
 }
 
 
@@ -49,7 +55,6 @@
 }
 
 .city-card-container:hover span {
-    opacity: 1;
     transform: translateY(210px);
     z-index: 1;
 }
@@ -65,4 +70,42 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+
+@media (max-width:720px){
+    .city-card-container a{
+        right: 10px;
+        bottom: 10px;
+        opacity: 1;
+    }
+
+    .city-card-container:before {
+        opacity: 1; 
+    }
+
+    .city-card-container:hover  a{
+        transform:none;
+    }
+    
+
+
+    .city-card-container span {
+        z-index: 1;
+        top: 10px;
+        left: 10px;
+
+    }
+    .city-card-container:hover span {
+        transform: none;
+    }
+    
+
+    .city-card-container {
+        width: 160px;
+        height: 305px;
+    }
+    .city-card-container span {
+        font-size: 28px;
+    }
 }

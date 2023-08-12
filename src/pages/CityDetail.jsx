@@ -28,9 +28,10 @@ const CityDetail = () => {
   return (
     <div className='city-detail-container'>
       {city ? (
-        <div>
-          <h1>{`${city.name}, ${city.country}`}</h1>
+        <div className='detail-container'>
           <img src={city.img} alt={city.name} />
+          <span>{city.descr}</span>
+          <h1>{`${city.name}, ${city.country}`}</h1>
         </div>
       ) : (
         <Loading/>
