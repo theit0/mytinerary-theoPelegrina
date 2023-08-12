@@ -35,9 +35,9 @@ const Cities = () => {
       
       <div className='cities-cards-container'>
           {
-            data.map((city) => {
+            data.map((city,index) => {
               return(
-                <CityCard img={city.img} content={`${city.name}, ${city.country}`}/>
+                <CityCard img={city.img} content={`${city.name}, ${city.country}`} id={index}/>
               )
             })
           }
