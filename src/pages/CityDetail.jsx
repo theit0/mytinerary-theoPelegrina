@@ -34,7 +34,7 @@ const CityDetail = () => {
                 <img src={city.img} alt={city.name} />
                 <div className='span-container'>
                   <Link to='/cities'>
-                      Go back
+                  Go back &#x25C0;
                   </Link>
                   <span>{city.descr}</span>
                 </div>

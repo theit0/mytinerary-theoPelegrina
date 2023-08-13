@@ -87,8 +87,6 @@
     .city-card-container:hover  a{
         transform:none;
     }
-    
-
 
     .city-card-container span {
         z-index: 1;
@@ -107,5 +105,9 @@
     }
     .city-card-container span {
         font-size: 28px;
+    }
+
+    .city-card-container a button{
+        font-size: .75rem;
     }
 }

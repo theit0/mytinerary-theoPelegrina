@@ -38,6 +38,7 @@
     top: 95%;
     padding-left: .5rem;
     transition: 0.1s;
+    z-index: 0;
 }
 
 
@@ -45,3 +46,9 @@
     height: 60px;
 }
 
+
+@media (max-width:720px){
+    .cities-cards-container{
+        margin-top: 1.5rem;
+    }
+}
