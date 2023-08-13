@@ -1,8 +1,9 @@
 import '../styled-components/CityDetail.css'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Loading from '../components/Loading';
+import Button from '../components/Button'
 
 const CityDetail = () => {
   const { id } = useParams();
@@ -26,17 +27,26 @@ const CityDetail = () => {
   }, [id]);
 
   return (
-    <div className='city-detail-container'>
-      {city ? (
-        <div className='detail-container'>
-          <img src={city.img} alt={city.name} />
-          <span>{city.descr}</span>
-          <h1>{`${city.name}, ${city.country}`}</h1>
-        </div>
-      ) : (
-        <Loading/>
-      )}
-    </div>
+      <div className='city-detail-container'>
+        {city ? (
+          <div className='detail-container'>
+            <div className='detail-img-container'>
+                <img src={city.img} alt={city.name} />
+                <div className='span-container'>
+                  <Link to='/cities'>
+                      Go back
+                  </Link>
+                  <span>{city.descr}</span>
+                </div>
+            </div>
+            <h1>{`${city.name}, ${city.country}`}</h1>
+          </div>
+        ) : (
+          <Loading/>
+        )}
+      </div>
+
+     
   );
 }
 
