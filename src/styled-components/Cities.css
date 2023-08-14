@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: fit-content;
     overflow: hidden;
 }
 
@@ -20,8 +20,11 @@
     line-height: 0.60;
 }
 .cities-cards-container{
+    width: 100%;
+    padding-top: 1.5rem;
     display: flex;
     flex-wrap: wrap;
+    z-index: 1;
 }
 .cities-cards-container div{
     flex-grow: 1;
@@ -38,7 +41,7 @@
     top: 95%;
     padding-left: .5rem;
     transition: 0.1s;
-    z-index: 0;
+    z-index: 2;
 }
 
 
@@ -47,8 +50,47 @@
 }
 
 
+.search-container {
+    position: relative;
+    background: red;
+}
+.search-container  button{
+    margin-top: .7rem;
+    position: absolute;
+    left: 55%;
+    top: 0;
+    z-index: 10;
+    background-color: #ff5722;
+    border: 1px solid #ff5722;
+    color: white;
+    border-radius: 0;
+}
+
+
+
+.search-container  button:hover{
+    background-color: #a43918;
+    border: 1px solid #a43918;
+}
+
+.search-input:hover + .search-button {
+    display: block;
+}
+
+
 @media (max-width:720px){
     .cities-cards-container{
         margin-top: 1.5rem;
     }
+}
+
+.not-found-container{
+    z-index: 1;
+    font-style: italic ;
+    background-color: white;
+    height: 400px !important;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    padding: 2rem;
 }
