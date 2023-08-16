@@ -13,7 +13,7 @@ nav{
 }
 
 .button-menu-toggler {
-    z-index: 2;
+    z-index: 11;
     position: relative;
     background-color: white;
     border:none;
@@ -41,7 +41,7 @@ nav{
 }
 
 .anchors.toggled {
-    z-index: 2;
+    z-index: 10;
     position: absolute;
     padding: 4rem 0 1.5rem 0;
     height: 220px;

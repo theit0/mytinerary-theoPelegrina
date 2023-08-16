@@ -14,15 +14,9 @@ const Cities = () => {
   const [found,setFound] = useState(true)
 
   useEffect(() => {
-      const configs = {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      };
-      axios.get('http://localhost:3000/api/cities',configs)
+      axios.get('http://localhost:3000/api/cities')
       .then(response => {
         setData(response.data.cities)
-        console.log(response.data.cities)
       })
       .catch(err => {
         console.log(err)
@@ -46,28 +40,30 @@ const Cities = () => {
       <div className='cities-title-container'>
         <Title content='Cities'/>
         <div className='search-container'>
-        <input
-          type='text'
-          className='search-input'
-          placeholder='SEARCH FOR CITIES&#128269;'
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
-        />
-          <button  onClick={() => getCities()}>Filter</button>
+          <input
+            type='text'
+            className='search-input'
+            placeholder='SEARCH FOR CITIES'
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+          />
+          <button  onClick={() => getCities()}>Search</button>
         </div>
       </div>
       <div className='cities-cards-container'>
           { found &&
-            data.map((city,index) => {
+            data.map((city) => {
               return(
-                <CityCard img={city.img} content={`${city.name}, ${city.country}`} id={index}/>
+                <CityCard img={city.img} content={`${city.name}, ${city.country}`} id={city._id}/>
               )
             }) 
           }
           {
             !found &&
             <div className='not-found-container'>
-              <span>{`No se encontro ninguna ciudad con el nombre "${searchValue}".`}</span>
+              <span>
+                No cities were found.
+              </span>
             </div>
           }
       </div>
