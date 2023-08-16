@@ -4,7 +4,7 @@ import Main from '../layouts/Main'
 import Cities from '../pages/Cities'
 import NotFound from '../pages/NotFound'
 import Login from '../components/Login'
-
+import CityDetail from '../pages/CityDetail'
 
 const router = createBrowserRouter([
     {
@@ -17,7 +17,11 @@ const router = createBrowserRouter([
             },
             {
                 path:'/cities',
-                element:<Cities/>
+                element:<Cities/>,
+            },
+            {
+                path:'/cities/:id',
+                element:<CityDetail/>
             },
             {
                 path:'/*',

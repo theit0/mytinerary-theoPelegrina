@@ -1,0 +1,115 @@
+.city-card-container {
+    position: relative;
+    width: 360px;
+    height: 405px;
+    overflow: hidden;
+}
+
+.city-card-container a{
+    position: absolute;
+    right: 10px;
+    bottom: -40px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.city-card-container a button{
+    background-color: #ff5722;
+    border: 1px solid #ff5722;
+    color: white;
+    border-radius: 0;
+}
+
+.city-card-container a button:hover{
+    background-color: #a43918;
+    border: 1px solid #a43918;
+}
+
+
+
+
+.city-card-container span {
+    cursor: default;
+    z-index: -1;
+    font-size: 75px;
+    position: absolute;
+    top: -200px;
+    left: 10px;
+    line-height: 0.9;
+    color: white;
+    transition: 0.2s;
+}
+
+.city-card-container:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+}
+
+.city-card-container:hover:before {
+    opacity: 1;
+}
+
+.city-card-container:hover span {
+    transform: translateY(210px);
+    z-index: 1;
+}
+
+.city-card-container:hover  a{
+    opacity: 1;
+    transform: translateY(-50px);
+}
+
+
+
+.city-card-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+@media (max-width:720px){
+    .city-card-container a{
+        right: 10px;
+        bottom: 10px;
+        opacity: 1;
+    }
+
+    .city-card-container:before {
+        opacity: 1; 
+    }
+
+    .city-card-container:hover  a{
+        transform:none;
+    }
+
+    .city-card-container span {
+        z-index: 1;
+        top: 10px;
+        left: 10px;
+
+    }
+    .city-card-container:hover span {
+        transform: none;
+    }
+    
+
+    .city-card-container {
+        width: 160px;
+        height: 305px;
+    }
+    .city-card-container span {
+        font-size: 28px;
+    }
+
+    .city-card-container a button{
+        font-size: .75rem;
+    }
+}

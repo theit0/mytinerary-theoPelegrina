@@ -1,0 +1,66 @@
+.detail-container{
+    min-height: 100vh;
+}
+
+.detail-img-container {
+    background-color:black;
+    display: flex;
+}
+
+.detail-img-container span {
+    font-size: 2rem;
+    color: white;
+}
+
+.detail-img-container img{
+    width: 50%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.city-detail-container {
+    position: relative;
+}
+.city-detail-container h1 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-size: 128px;
+    line-height: 0.75;
+    color: white;
+    font-weight: 500;
+}
+
+.span-container {
+    gap: 1rem;
+    padding: 3rem;
+    width: 50%;
+    display: grid;
+    place-content: center;
+}
+
+.span-container a{
+    text-decoration: none;
+    font-style: italic;
+    color: white;
+}
+
+@media (max-width:800px){
+    
+    .detail-img-container {
+        flex-direction: column;
+    }
+
+    .span-container {
+        width: 100%;
+    }
+    .detail-img-container img{
+        width: 100%;
+    }
+
+    .city-detail-container h1 {
+        position:relative;
+        color: black;
+    }
+    
+}

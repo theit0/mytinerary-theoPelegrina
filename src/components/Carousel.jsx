@@ -20,7 +20,7 @@ const Carousel = () => {
         };
         axios.get('http://localhost:3000/api/cities',configs)
         .then(response => {
-          setData(response.data.slice(0,12))
+          setData(response.data.cities.slice(0,12))
         })
         .catch(err => {
           console.log(err)

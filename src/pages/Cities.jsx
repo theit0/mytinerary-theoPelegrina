@@ -2,86 +2,71 @@ import { useState } from 'react'
 import '../styled-components/Cities.css'
 import { useEffect } from 'react';
 import axios from 'axios';
-import Card from '../components/Card'
-import Slider from "react-slick";
 import Title from '../components/Title'
+import CityCard from '../components/CityCard';
+import zoom from '../assets/zoom-filled.svg'
+import Button from '../components/Button';
 
 const Cities = () => {
 
+  const [searchValue,setSearchValue] = useState(null)
   const [data,setData] = useState([]);
-  
+  const [found,setFound] = useState(true)
+
   useEffect(() => {
-      const configs = {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      };
-      axios.get('http://localhost:3000/api/cities',configs)
+      axios.get('http://localhost:3000/api/cities')
       .then(response => {
-        setData(response.data)
+        setData(response.data.cities)
       })
       .catch(err => {
         console.log(err)
       })
   },[]);
 
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    initialSlide: 0,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    pauseOnHover: true,
-    responsive: [
-      {
-        breakpoint: 1920,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 1450,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2
-        }
-      },
-      {
-        breakpoint: 1000,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+  const getCities = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/api/cities', {
+        params: { name: searchValue },
+      });
+      setData(response.data.cities)
+      setFound(true)
+    } catch (error) {
+      setFound(false)
+    }
   };
 
   return (
     <div className='cities-container'>
       <div className='cities-title-container'>
-        <Title content='Cities.'/>
-        <span>Collection of the most beautiful places and experience.</span>
+        <Title content='Cities'/>
+        <div className='search-container'>
+          <input
+            type='text'
+            className='search-input'
+            placeholder='SEARCH FOR CITIES'
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+          />
+          <button  onClick={() => getCities()}>Search</button>
+        </div>
       </div>
-      
-      {/* <div className='cards-container'>
-        <Slider {...settings} >
-          {
+      <div className='cities-cards-container'>
+          { found &&
             data.map((city) => {
               return(
-                <Card img={city.img} content={`${city.name}, ${city.country}`}/>
+                <CityCard img={city.img} content={`${city.name}, ${city.country}`} id={city._id}/>
               )
-            })
+            }) 
           }
-        </Slider>
-      </div> */}
+          {
+            !found &&
+            <div className='not-found-container'>
+              <span>
+                No cities were found.
+              </span>
+            </div>
+          }
+      </div>
     </div>
     
     
