@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useRef } from 'react'
 import '../styled-components/Cities.css'
 import { useEffect } from 'react';
 import axios from 'axios';
@@ -13,6 +13,9 @@ const Cities = () => {
   const [data,setData] = useState([]);
   const [found,setFound] = useState(true)
 
+  let inputSearch =  useRef();
+
+
   useEffect(() => {
       axios.get('http://localhost:3000/api/cities')
       .then(response => {
@@ -24,14 +27,16 @@ const Cities = () => {
   },[]);
 
   const getCities = async () => {
+    const name = inputSearch.current.value
     try {
-      const response = await axios.get('http://localhost:3000/api/cities', {
-        params: { name: searchValue },
-      });
+      const response = await axios.get(`http://localhost:3000/api/cities?name=${name}`);
       setData(response.data.cities)
-      setFound(true)
     } catch (error) {
-      setFound(false)
+      if(error.response.status === 404){
+        setData([])
+      } else {
+        console.log(error)
+      }
     }
   };
 
@@ -41,25 +46,25 @@ const Cities = () => {
         <Title content='Cities'/>
         <div className='search-container'>
           <input
+            ref={inputSearch}
             type='text'
             className='search-input'
             placeholder='SEARCH FOR CITIES'
             value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
           />
-          <button  onClick={() => getCities()}>Search</button>
+          <button onClick={getCities}>Search</button>
         </div>
       </div>
       <div className='cities-cards-container'>
-          { found &&
+          { 
+            data.length > 0 
+            ?
             data.map((city) => {
               return(
                 <CityCard img={city.img} content={`${city.name}, ${city.country}`} id={city._id}/>
               )
             }) 
-          }
-          {
-            !found &&
+            :
             <div className='not-found-container'>
               <span>
                 No cities were found.

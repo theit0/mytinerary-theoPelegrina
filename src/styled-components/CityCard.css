@@ -17,10 +17,14 @@
     background-color: #ff5722;
     border: 1px solid #ff5722;
     color: white;
-    border-radius: 0;
+    border-radius: 4px;
 }
 
 .city-card-container a button:hover{
+    background-color: #d0481f;
+    border: 1px solid #d0481f;
+}
+.city-card-container a button:active{
     background-color: #a43918;
     border: 1px solid #a43918;
 }

@@ -41,8 +41,11 @@
 
 .span-container a{
     text-decoration: none;
-    font-style: italic;
     color: white;
+}
+
+.span-container a:hover{
+    text-decoration:underline;
 }
 
 @media (max-width:800px){
