@@ -4,14 +4,11 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import Title from '../components/Title'
 import CityCard from '../components/CityCard';
-import zoom from '../assets/zoom-filled.svg'
-import Button from '../components/Button';
 
 const Cities = () => {
 
-  const [searchValue,setSearchValue] = useState(null)
   const [data,setData] = useState([]);
-  const [found,setFound] = useState(true)
+  const [inputValue,setInputValue] = useState('')
 
   let inputSearch =  useRef();
 
@@ -34,6 +31,7 @@ const Cities = () => {
     } catch (error) {
       if(error.response.status === 404){
         setData([])
+        setInputValue(name)
       } else {
         console.log(error)
       }
@@ -50,7 +48,6 @@ const Cities = () => {
             type='text'
             className='search-input'
             placeholder='SEARCH FOR CITIES'
-            value={searchValue}
           />
           <button onClick={getCities}>Search</button>
         </div>
@@ -67,13 +64,12 @@ const Cities = () => {
             :
             <div className='not-found-container'>
               <span>
-                No cities were found.
+                {`City not found with name ${inputValue}`}
               </span>
             </div>
           }
       </div>
     </div>
-    
     
   )
 }

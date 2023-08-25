@@ -4,11 +4,12 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Loading from '../components/Loading';
 import Button from '../components/Button';
+import Itinerary from '../components/Itinerary';
 
 const CityDetail = () => {
   const { id } = useParams();
-  const [city, setCity] = useState(null);
-
+  const [city, setCity] = useState({});
+  
   useEffect(() => {
     axios.get(`http://localhost:3000/api/cities/${id}`)
       .then(response => {
@@ -35,8 +36,20 @@ const CityDetail = () => {
       ) : (
         <Loading />
       )}
+      <div className='city-itineraries'>
+          { 
+            city.itineraries.map((it) => {
+                return (
+                  <Itinerary name={it.name} by={it.by} price={it.price} hastags={it.hastags} likes={it.likes}/>
+                )
+            })
+          }
+      </div>
+    
     </div>
   );
 }
 
 export default CityDetail;
+
+

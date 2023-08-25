@@ -1,5 +1,6 @@
 .detail-container{
     min-height: 100vh;
+    position: relative;
 }
 
 .detail-img-container {
@@ -18,9 +19,6 @@
     object-fit: cover;
 }
 
-.city-detail-container {
-    position: relative;
-}
 .city-detail-container h1 {
     position: absolute;
     left: 0;
