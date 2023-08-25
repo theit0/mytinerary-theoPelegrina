@@ -1,0 +1,85 @@
+.itinerary {
+    z-index: 10;
+    width: 500px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    border: 1px solid #DFDFDF;
+    gap: 1rem;
+}
+
+.itinerary-name-container{
+    border-bottom:1px solid #DFDFDF ;
+    padding: 1rem 0 1rem 1.5rem;
+    grid-column: 1 / 4;
+}
+
+.itinerary-by{
+    padding-left: 1.5rem;
+    display: flex;
+    gap: .75rem;
+    align-items: center;
+    grid-column: span 1;
+}
+
+.itinerary-by h2{
+    font-weight: 600;
+}
+
+.itinerary-tags{
+    padding-right: 1.5rem;
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    grid-column: 2/4;
+}
+
+.itinerary-tags span{
+    background-color: #F8F8F8;
+    padding: 0.25rem .5rem 0.25rem .75rem ;
+    color: #4F4F4F;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.itinerary-tags span svg{
+    padding-left: .2rem;
+    color: #4F4F4F;
+}
+
+.itinerary-hastags{
+    color: #A4A4A4;
+    font-weight: 500;
+    padding-left: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    grid-column: 1/4;
+}
+
+.itinerary-viewmore{
+    padding: 0 0 1rem 1.5rem;
+    grid-column: span 2;
+}
+
+.itinerary-viewmore .button{
+    font-weight: 600;
+    background-color: #FF5722;
+    color: white;
+    border-radius: 0;
+    border: none;
+    padding: .4rem 1.25rem .4rem 1.25rem ;
+}
+
+.itinerary-viewmore .button:hover{
+    background-color: #c0421c;
+}
+
+.itinerary-likes{
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: .25rem;
+    padding-right: 1.5rem;
+}

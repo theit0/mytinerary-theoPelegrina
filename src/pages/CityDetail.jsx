@@ -37,13 +37,13 @@ const CityDetail = () => {
         <Loading />
       )}
       <div className='city-itineraries'>
-          { 
-            city.itineraries.map((it) => {
-                return (
-                  <Itinerary name={it.name} by={it.by} price={it.price} hastags={it.hastags} likes={it.likes}/>
-                )
-            })
-          }
+        { 
+          city.itineraries && city.itineraries.map((it) => {
+            return (
+              <Itinerary img={it.img} name={it.name} by={it.by} price={it.price} hastags={it.hastags} duration={it.duration} likes={it.likes}/>
+            )
+          })
+        }
       </div>
     
     </div>

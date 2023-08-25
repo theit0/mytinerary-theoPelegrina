@@ -65,3 +65,11 @@
     }
     
 }
+
+.city-itineraries{
+    justify-content: center;
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
