@@ -1,41 +1,29 @@
 import { useState,useRef } from 'react'
 import '../styled-components/Cities.css'
 import { useEffect } from 'react';
-import axios from 'axios';
 import Title from '../components/Title'
 import CityCard from '../components/CityCard';
+import { useDispatch, useSelector } from 'react-redux';
+import { filter_cities, get_cities } from '../store/actions/cityActions';
 
 const Cities = () => {
 
-  const [data,setData] = useState([]);
-  const [inputValue,setInputValue] = useState('')
-
+  const cities = useSelector(store => store.cityReducers.cities)
+  
   let inputSearch =  useRef();
 
+  const dispatch = useDispatch()
 
   useEffect(() => {
-      axios.get('http://localhost:3000/api/cities')
-      .then(response => {
-        setData(response.data.cities)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  },[]);
+      dispatch(get_cities())
+  },[dispatch]);
 
-  const getCities = async () => {
-    const name = inputSearch.current.value
-    try {
-      const response = await axios.get(`http://localhost:3000/api/cities?name=${name}`);
-      setData(response.data.cities)
-    } catch (error) {
-      if(error.response.status === 404){
-        setData([])
-        setInputValue(name)
-      } else {
-        console.log(error)
-      }
-    }
+  const handleSearch =  () => {
+      dispatch(
+        filter_cities({
+          name:inputSearch.current.value
+        })
+      )
   };
 
   return (
@@ -49,14 +37,14 @@ const Cities = () => {
             className='search-input'
             placeholder='SEARCH FOR CITIES'
           />
-          <button onClick={getCities}>Search</button>
+          <button onClick={handleSearch}>Search</button>
         </div>
       </div>
       <div className='cities-cards-container'>
           { 
-            data.length > 0 
+            cities.length > 0 
             ?
-            data.map((city) => {
+            cities.map((city) => {
               return(
                 <CityCard img={city.img} content={`${city.name}, ${city.country}`} id={city._id}/>
               )
@@ -64,7 +52,7 @@ const Cities = () => {
             :
             <div className='not-found-container'>
               <span>
-                {`City not found with name ${inputValue}`}
+                No cities found
               </span>
             </div>
           }

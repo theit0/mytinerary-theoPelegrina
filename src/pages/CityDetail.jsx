@@ -3,20 +3,18 @@ import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Loading from '../components/Loading';
-import Button from '../components/Button';
 import Itinerary from '../components/Itinerary';
+import { useDispatch, useSelector } from 'react-redux';
+import { get_city } from '../store/actions/cityActions';
 
 const CityDetail = () => {
   const { id } = useParams();
-  const [city, setCity] = useState({});
-  
+  const city = useSelector(store => store.cityReducers.city)
+  const dispatch = useDispatch()
+
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/cities/${id}`)
-      .then(response => {
-        setCity(response.data.city);
-      })
-      .catch(error => console.error('Error fetching city:', error));
-  }, [id]);
+      dispatch(get_city(id))
+  }, []);
 
   return (
     <div className='city-detail-container'>

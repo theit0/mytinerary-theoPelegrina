@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux"
 import { user_photo } from "../store/actions/userActions";
+import '../styled-components/Login.css'
 
 
 
@@ -21,9 +22,12 @@ const SignIn = () => {
 
     return (
     <div>
-        <button onClick={handleSignIn}>
+        <div className='login-container'>
+        <h1>Login page under construction.</h1>
+        </div>
+        {/* <button onClick={handleSignIn}>
             SignIn
-        </button>
+        </button> */}
     </div>
     )
 }

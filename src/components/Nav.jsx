@@ -14,7 +14,6 @@ const Nav = () => {
     const anchorClassName = toggled ? 'anchors toggled' : 'anchors';
     const linksClassName = toggled ? 'links toggled' : 'links';
     const store = useSelector(store => store.userReducer)
-    console.log(store.photo)
 
     const links = [
         {content:'Home',to:'/'},

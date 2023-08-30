@@ -7,8 +7,7 @@ const initialState = {
 }
 
 const userReducer = createReducer(initialState, 
-    (builder) => builder
-        .addCase(user_photo, (state,action) => {
+    (builder) => builder.addCase(user_photo, (state,action) => {
             return {
                 ...state,
                 photo: action.payload.photo
