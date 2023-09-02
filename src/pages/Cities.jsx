@@ -25,7 +25,7 @@ const Cities = () => {
         })
       )
   };
-
+ //
   return (
     <div className='cities-container'>
       <div className='cities-title-container'>
