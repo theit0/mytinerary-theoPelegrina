@@ -5,6 +5,7 @@ import Cities from '../pages/Cities'
 import NotFound from '../pages/NotFound'
 import Login from '../components/Login'
 import CityDetail from '../pages/CityDetail'
+import SignIn from '../pages/SignIn'
 
 const router = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path:'/*',
                 element:<NotFound/>
+            },
+            {
+                path:'/login',
+                element:<SignIn/>
             }
         ]
     },

@@ -5,12 +5,15 @@ import Button from '../components/Button'
 import { useState } from 'react'
 import MenuICON from '../assets/menu.svg'
 import x from '../assets/x.svg'
+import { useSelector } from 'react-redux'
+
 
 const Nav = () => {
 
     const [toggled,setToggled] = useState(false)
     const anchorClassName = toggled ? 'anchors toggled' : 'anchors';
     const linksClassName = toggled ? 'links toggled' : 'links';
+    const store = useSelector(store => store.userReducer)
 
     const links = [
         {content:'Home',to:'/'},
@@ -36,6 +39,7 @@ const Nav = () => {
             <button className='button-menu-toggler' onClick={()=>setToggled(!toggled)}>
                 <img className='menu-toggler' src={toggled ? x : MenuICON} alt='Menu toggler'/>
             </button>
+            {/* <img src={store.photo}  width={50}/> */}
         </nav>
     )
 }

@@ -3,19 +3,18 @@ import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Loading from '../components/Loading';
-import Button from '../components/Button';
+import Itinerary from '../components/Itinerary';
+import { useDispatch, useSelector } from 'react-redux';
+import { get_city } from '../store/actions/cityActions';
 
 const CityDetail = () => {
   const { id } = useParams();
-  const [city, setCity] = useState(null);
+  const city = useSelector(store => store.cityReducers.city)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/cities/${id}`)
-      .then(response => {
-        setCity(response.data.city);
-      })
-      .catch(error => console.error('Error fetching city:', error));
-  }, [id]);
+      dispatch(get_city(id))
+  }, []);
 
   return (
     <div className='city-detail-container'>
@@ -25,7 +24,7 @@ const CityDetail = () => {
             <img src={city.img} alt={city.name} />
             <div className='span-container'>
               <Link to='/cities'>
-                Go back &#x25C0;
+                  Go back
               </Link>
               <span>{city.descr}</span>
             </div>
@@ -35,8 +34,20 @@ const CityDetail = () => {
       ) : (
         <Loading />
       )}
+      <div className='city-itineraries'>
+        { 
+          city.itineraries && city.itineraries.map((it) => {
+            return (
+              <Itinerary img={it.img} name={it.name} by={it.by} price={it.price} hastags={it.hastags} duration={it.duration} likes={it.likes}/>
+            )
+          })
+        }
+      </div>
+    
     </div>
   );
 }
 
 export default CityDetail;
+
+
