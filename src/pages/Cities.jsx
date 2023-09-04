@@ -21,7 +21,7 @@ const Cities = () => {
   const handleSearch =  () => {
       dispatch(
         filter_cities({
-          name:inputSearch.current.value
+          name:inputSearch.current.value.trim(' ')
         })
       )
   };
