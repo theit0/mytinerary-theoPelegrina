@@ -11,9 +11,11 @@ import { useSelector } from 'react-redux'
 const Nav = () => {
 
     const [toggled,setToggled] = useState(false)
+    const user = useSelector(store=>store.userReducer.user)
+    console.log(user)
     const anchorClassName = toggled ? 'anchors toggled' : 'anchors';
     const linksClassName = toggled ? 'links toggled' : 'links';
-    const store = useSelector(store => store.userReducer)
+    const def_image = 'https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar.png'
 
     const links = [
         {content:'Home',to:'/'},
@@ -32,14 +34,19 @@ const Nav = () => {
                         }) 
                     }
                 </div>
-                <Button content='Login' to='/login'>
-                    <img src={userSVG}/>
-                </Button>
+                {
+                    !user 
+                    &&
+                    <Button content='Login' to='/login'>
+                        <img src={userSVG}/>
+                    </Button>
+                }
+                
             </div>
             <button className='button-menu-toggler' onClick={()=>setToggled(!toggled)}>
                 <img className='menu-toggler' src={toggled ? x : MenuICON} alt='Menu toggler'/>
             </button>
-            {/* <img src={store.photo}  width={50}/> */}
+            <img src={user ? user.image : def_image}  width={50}/>
         </nav>
     )
 }
