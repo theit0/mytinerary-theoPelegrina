@@ -15,7 +15,6 @@ const Nav = () => {
     console.log(user)
     const anchorClassName = toggled ? 'anchors toggled' : 'anchors';
     const linksClassName = toggled ? 'links toggled' : 'links';
-    const def_image = 'https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar.png'
 
     const links = [
         {content:'Home',to:'/'},
@@ -46,7 +45,12 @@ const Nav = () => {
             <button className='button-menu-toggler' onClick={()=>setToggled(!toggled)}>
                 <img className='menu-toggler' src={toggled ? x : MenuICON} alt='Menu toggler'/>
             </button>
-            <img src={user ? user.image : def_image}  width={50}/>
+            {
+                user 
+                &&
+                <img src={user.image}  className='user-icon'/>
+            }
+                
         </nav>
     )
 }

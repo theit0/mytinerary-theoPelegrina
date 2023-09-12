@@ -1,9 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { user_photo,user_login, user_token } from "../actions/userActions";
+import { user_photo,user_login, user_token, user_login_google, user_signup } from "../actions/userActions";
 
 const initialState = {
-    /* name: "Theo",
-    photo: "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar.png" */
     user:null,
     token:null
 }
@@ -23,6 +21,19 @@ const userReducer = createReducer(initialState,
             }
         })
         .addCase(user_token,(state,action)=>{
+            return {
+                ...state,
+                user:action.payload.user
+            }
+        })
+        .addCase(user_login_google.fulfilled,(state,action)=>{
+            return {
+                ...state,
+                user:action.payload.user,
+                token:action.payload.token
+            }
+        })
+        .addCase(user_signup.fulfilled,(state,action)=>{
             return {
                 ...state,
                 user:action.payload.user

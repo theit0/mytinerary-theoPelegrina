@@ -7,6 +7,7 @@ import Login from '../components/Login'
 import CityDetail from '../pages/CityDetail'
 import SignIn from '../pages/SignIn'
 import ProtectedRoute from './ProtectedRoute'
+import SignUp from '../pages/SignUp'
 
 const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
                         <SignIn/>
                     </ProtectedRoute>
                 )
+            },
+            {
+                path:'/signup',
+                element:<SignUp/>
             }
         ]
     },
