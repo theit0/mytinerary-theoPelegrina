@@ -6,6 +6,8 @@ import NotFound from '../pages/NotFound'
 import Login from '../components/Login'
 import CityDetail from '../pages/CityDetail'
 import SignIn from '../pages/SignIn'
+import ProtectedRoute from './ProtectedRoute'
+import SignUp from '../pages/SignUp'
 
 const router = createBrowserRouter([
     {
@@ -22,7 +24,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/cities/:id',
-                element:<CityDetail/>
+                element: <CityDetail/>
             },
             {
                 path:'/*',
@@ -30,7 +32,15 @@ const router = createBrowserRouter([
             },
             {
                 path:'/login',
-                element:<SignIn/>
+                element:(
+                    <ProtectedRoute path='/'>
+                        <SignIn/>
+                    </ProtectedRoute>
+                )
+            },
+            {
+                path:'/signup',
+                element:<SignUp/>
             }
         ]
     },

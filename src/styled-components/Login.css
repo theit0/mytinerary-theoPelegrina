@@ -1,5 +1,66 @@
-.login-container{
-    display: grid;
-    place-content: center;
+.signin-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
+}
+
+.signin-section form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.signin-section button{
+    min-width: 240px;
+    height: 35px;
+    font-size: 1rem;
+    background-color: #ff5722;
+    border: 1px solid #ff5722;
+    color: white;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: .4rem 1.25rem .4rem 1.25rem ;
+}
+
+.signin-section button:hover{
+    background-color: #d0481f;
+    border: 1px solid #d0481f;
+}
+.signin-section button:active{
+    background-color: #a43918;
+    border: 1px solid #a43918;
+}
+
+
+.signin-section input {
+    min-width: 240px;
+    height: 35px;
+    padding-left: 0.75rem;
+    border-radius: 4px;
+    border: 1.5px solid #dfdfdf;
+}
+
+.signin-section input::placeholder {
+    font-size: 1rem;
+    color:#dfdfdf ;
+    
+}
+
+.signin-section div {
+    display: flex;
+    flex-direction:column ;
+    gap: .5rem;
+    font-weight: 600;
+}
+
+.signin-section form a img{
+    min-width: 240px !important;
+    margin-bottom: 1rem;
+}
+
+.create-acc{
+    font-size: 14px;
 }

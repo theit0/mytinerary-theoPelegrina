@@ -1,34 +1,69 @@
-import { useDispatch } from "react-redux"
-import { user_photo } from "../store/actions/userActions";
+import { useDispatch, useSelector } from "react-redux"
+import { user_login, user_login_google } from "../store/actions/userActions";
 import '../styled-components/Login.css'
-
-
+import { useState } from "react";
+import GoogleSignIn from "../components/GoogleSignIn";
+import Logo from '../components/Logo'
+import Swal from "sweetalert2";
 
 const SignIn = () => {
+    const store=useSelector(store=>store.userReducer)
+
+
     const dispatch = useDispatch();
 
-    const handleSignIn = () => {
-        //Simulo que mi usuario se logueo correctamente
-        //Simulo que obtengo los datos del usuario (photo)
-        //Utilizo el dispatch para enviar esa informacion(disparar el evento del action)
-        //Y que el reducer haga el cambio de estado
-        
-        const user = {
-            photo : 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg/220px-Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg'
+    const [formData,setFormData] = useState({
+        email: '',
+        password:''
+    })
+
+
+    const handleSignIn = async (event) => {
+        event.preventDefault();
+
+        try {
+            dispatch(user_login({
+                data:formData
+            }))
+            
+        } catch (error) {
+            console.log(error)
         }
-        
-        dispatch(user_photo(user))
+
     }
 
+    const handleInput = (event) => {
+        setFormData({
+            ...formData,
+            [event.target.name]:event.target.value
+        })
+    }
+
+
     return (
-    <div>
-        <div className='login-container'>
-        <h1>Login page under construction.</h1>
+        <div className="signin-section">
+            <form onSubmit={handleSignIn}>
+                <Logo/>
+                <div>
+                    <label>Email</label>
+                    <input name="email" onChange={handleInput} type="email" placeholder="Enter email"/>
+                </div>
+                <div>
+                    <label>Password</label>
+                    <input name="password" onChange={handleInput} type="password" placeholder="Enter password"/>
+                </div>
+                <button> 
+                    Sign in
+                </button>
+                    
+                
+                <GoogleSignIn></GoogleSignIn>
+
+                <span className="create-acc">
+                    Don't have any? <a href="/signup">Create a free account</a>
+                </span>
+            </form>
         </div>
-        {/* <button onClick={handleSignIn}>
-            SignIn
-        </button> */}
-    </div>
     )
 }
 
