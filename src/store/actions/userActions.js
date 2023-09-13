@@ -25,6 +25,28 @@ export const user_login = createAsyncThunk('user_login',async (obj)=>{
     }
 })
 
+export const user_logout = createAsyncThunk('user_logout', async (_, thunkAPI) => {
+    const token = localStorage.getItem('token');
+    const config = {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    };
+
+    try {
+        await axios.post('http://localhost:3000/api/auth/signout', null, config);
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        return {
+            user: null,
+            token: null
+        };
+    } catch (error) {
+        console.log(error);
+        return thunkAPI.rejectWithValue(error.message);
+    }
+});
+
 export const user_login_google = createAsyncThunk('user_login_google',async (obj)=>{
     try {  
         const {data} = await axios.post('http://localhost:3000/api/auth/google',obj.data)

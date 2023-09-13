@@ -29,18 +29,19 @@ const GoogleSignIn = () => {
     }
 
     useEffect(() => {
-        window.onload = function () {
-            google.accounts.id.initialize({
-              client_id: '763167240758-esbk3973ikbv5q7aj4jiff5f8uprl4o1.apps.googleusercontent.com',
-              callback: handleCredentialResponse
+        if(window.google) {
+            window.google.accounts.id.initialize({
+                client_id: "763167240758-esbk3973ikbv5q7aj4jiff5f8uprl4o1.apps.googleusercontent.com",
+                callback: handleCredentialResponse
             });
-            google.accounts.id.renderButton(
+            window.google.accounts.id.renderButton(
                 googleButton.current,
-              { theme: "outline", size: "large" }  // customization attributes
+                { theme: "outline", size: "large" }  // customization attributes
             );
         }
+    
     }, []);
-
+    
 
     return (
         <div ref={googleButton}>GoogleSignIn</div>
