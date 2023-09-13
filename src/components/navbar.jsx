@@ -1,4 +1,4 @@
-import '../styled-components/Navbar.css'
+import '../styled-components/navbar.css'
 import Logo from './Logo'
 import Nav from './Nav'
 
