@@ -5,6 +5,7 @@ import { useState } from "react";
 import GoogleSignIn from "../components/GoogleSignIn";
 import Logo from '../components/Logo'
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
     const store=useSelector(store=>store.userReducer)
@@ -60,7 +61,7 @@ const SignIn = () => {
                 <GoogleSignIn></GoogleSignIn>
 
                 <span className="create-acc">
-                    Don't have any? <a href="/signup">Create a free account</a>
+                    Don't have any? <Link to="/signup">Create a free account</Link>
                 </span>
             </form>
         </div>
