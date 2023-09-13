@@ -25,7 +25,6 @@ const GoogleSignIn = () => {
         }
 
         const userResponse = await axios.post('http://localhost:3000/api/auth/google',data)
-        console.log(userResponse)
     }
 
     useEffect(() => {

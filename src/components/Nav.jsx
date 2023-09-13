@@ -14,7 +14,6 @@ const Nav = () => {
 
     const [toggled,setToggled] = useState(false)
     const user = useSelector(store=>store.userReducer.user)
-    console.log(user)
     const anchorClassName = toggled ? 'anchors toggled' : 'anchors';
     const linksClassName = toggled ? 'links toggled' : 'links';
 

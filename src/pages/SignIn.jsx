@@ -4,11 +4,11 @@ import '../styled-components/Login.css'
 import { useState } from "react";
 import GoogleSignIn from "../components/GoogleSignIn";
 import Logo from '../components/Logo'
-
+import Swal from "sweetalert2";
 
 const SignIn = () => {
     const store=useSelector(store=>store.userReducer)
-    console.log('Viene del store',store)
+
 
     const dispatch = useDispatch();
 
@@ -25,6 +25,7 @@ const SignIn = () => {
             dispatch(user_login({
                 data:formData
             }))
+            
         } catch (error) {
             console.log(error)
         }
@@ -37,8 +38,6 @@ const SignIn = () => {
             [event.target.name]:event.target.value
         })
     }
-
-    console.log(formData)
 
 
     return (
@@ -53,7 +52,7 @@ const SignIn = () => {
                     <label>Password</label>
                     <input name="password" onChange={handleInput} type="password" placeholder="Enter password"/>
                 </div>
-                <button>
+                <button> 
                     Sign in
                 </button>
                     

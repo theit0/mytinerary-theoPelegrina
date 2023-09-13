@@ -4,7 +4,7 @@ import { useState } from "react";
 import GoogleSignIn from "../components/GoogleSignIn";
 import Logo from '../components/Logo'
 import axios from "axios";
-
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const [formData,setFormData] = useState({
@@ -22,7 +22,19 @@ const SignUp = () => {
         event.preventDefault();
         try {  
             const data = await axios.post('http://localhost:3000/api/auth/signup',formData)
+            Swal.fire({
+                title: '¡Perfect!',
+                text: 'User successfully registered ',
+                icon: 'success',
+                confirmButtonText: 'Continue'
+            })
         } catch (error) {
+            Swal.fire({
+                title: 'Ooops',
+                text: error.response.data.message,
+                icon: 'error',
+                confirmButtonText: 'Continue'
+            })
             console.log(error)
         }
     }
