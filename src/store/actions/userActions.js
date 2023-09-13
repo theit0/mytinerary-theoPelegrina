@@ -13,7 +13,7 @@ export const user_photo = createAction('user_photo',(obj)=>{
 
 export const user_login = createAsyncThunk('user_login',async (obj)=>{
     try {  
-        const {data} = await axios.post('http://localhost:3000/api/auth/signin',obj.data)
+        const {data} = await axios.post('https://mytinerary-back-theopelegrina-production.up.railway.app/api/auth/signin',obj.data)
         localStorage.setItem('token',data.response.token)
         localStorage.setItem('user',JSON.stringify(data.response.user))
         Swal.fire({
@@ -49,7 +49,7 @@ export const user_logout = createAsyncThunk('user_logout', async (_, thunkAPI) =
     };
 
     try {
-        await axios.post('http://localhost:3000/api/auth/signout', null, config);
+        await axios.post('https://mytinerary-back-theopelegrina-production.up.railway.app/api/auth/signout', null, config);
         localStorage.removeItem("token");
         localStorage.removeItem("user");
         Swal.fire({
@@ -70,7 +70,7 @@ export const user_logout = createAsyncThunk('user_logout', async (_, thunkAPI) =
 
 export const user_login_google = createAsyncThunk('user_login_google',async (obj)=>{
     try {  
-        const {data} = await axios.post('http://localhost:3000/api/auth/google',obj.data)
+        const {data} = await axios.post('https://mytinerary-back-theopelegrina-production.up.railway.app/api/auth/google',obj.data)
         localStorage.setItem('token',data.response.token)
         localStorage.setItem('user',JSON.stringify(data.response.user))
         Swal.fire({
@@ -91,7 +91,7 @@ export const user_login_google = createAsyncThunk('user_login_google',async (obj
 
 export const user_signup = createAsyncThunk('user_signup',async (obj)=>{
     try {  
-        const data = await axios.post('http://localhost:3000/api/auth/signup',obj)
+        const data = await axios.post('https://mytinerary-back-theopelegrina-production.up.railway.app/api/auth/signup',obj)
         
         return {
             user: data.response.user
