@@ -18,7 +18,7 @@ const Carousel = () => {
             'Content-Type': 'application/json',
           }
         };
-        axios.get('http://localhost:3000/api/cities',configs)
+        axios.get('https://mytinerary-back-theopelegrina-production.up.railway.app/api/cities',configs)
         .then(response => {
           setData(response.data.cities.slice(0,12))
         })
