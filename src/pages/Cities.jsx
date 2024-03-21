@@ -47,7 +47,9 @@ const Cities = () => {
       </div>
       <div className='cities-cards-container'>
         {loading ? ( // Mostrar el loader mientras se carga
-          <Loading />
+          <div className='loader-container'>
+            <Loading />
+          </div>
         ) : cities.length > 0 ? ( // Mostrar las ciudades si hay alguna
           cities.map(city => (
             <CityCard img={city.img} content={`${city.name}, ${city.country}`} id={city._id} key={city._id} />
