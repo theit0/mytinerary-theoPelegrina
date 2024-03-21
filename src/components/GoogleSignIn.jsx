@@ -24,7 +24,7 @@ const GoogleSignIn = () => {
             console.log(error)
         }
 
-        const userResponse = await axios.post('http://localhost:3000/api/auth/google',data)
+        const userResponse = await axios.post('https://mytinerary-back-theopelegrina-production.up.railway.app/api/auth/google',data)
     }
 
     useEffect(() => {
