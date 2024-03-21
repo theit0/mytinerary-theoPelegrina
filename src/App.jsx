@@ -17,7 +17,10 @@ function App() {
     if(token){
       let configs = { headers: {'Authorization':`Bearer ${token}`} }
       
+
       axios.post('https://mytinerary-back-theopelegrina.onrender.com/api/auth/token',null,configs)
+
+
         .then(response => dispatch(user_token(response.data.user)))
         .catch(error=>console.log(error))
     }

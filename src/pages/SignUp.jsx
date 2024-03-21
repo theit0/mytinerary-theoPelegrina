@@ -21,7 +21,9 @@ const SignUp = () => {
     const handleSignUp = async (event) => {
         event.preventDefault();
         try {  
+
             const data = await axios.post('https://mytinerary-back-theopelegrina.onrender.com/api/auth/signup',formData)
+
             Swal.fire({
                 title: '¡Perfect!',
                 text: 'User successfully registered ',

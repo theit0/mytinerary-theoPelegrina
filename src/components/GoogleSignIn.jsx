@@ -24,7 +24,9 @@ const GoogleSignIn = () => {
             console.log(error)
         }
 
+
         const userResponse = await axios.post('https://mytinerary-back-theopelegrina.onrender.com/api/auth/google',data)
+
     }
 
     useEffect(() => {
