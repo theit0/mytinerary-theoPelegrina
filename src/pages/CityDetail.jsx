@@ -32,7 +32,9 @@ const CityDetail = () => {
           <h1>{`${city.name}, ${city.country}`}</h1>
         </div>
       ) : (
-        <Loading />
+        <div style={{"paddingTop":"6rem"}}>
+          <Loading />
+        </div>
       )}
       <div className='city-itineraries'>
         { 

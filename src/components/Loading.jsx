@@ -2,9 +2,9 @@ import '../styled-components/Loading.css'
 
 const Loading = () => {
   return (
-    <div className="loading-spinner">
-      <div className="spinner"></div>
-    </div>
+    <article className="loading-spinner">
+      <span className="spinner"></span>
+    </article>
   )
 }
 

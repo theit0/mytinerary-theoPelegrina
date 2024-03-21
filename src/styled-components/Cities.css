@@ -26,11 +26,16 @@
     display: flex;
     flex-wrap: wrap;
     z-index: 1;
+    background-color: white;
 }
 .cities-cards-container div{
     flex-grow: 1;
 }
-
+.loader-container{
+    display: flex;
+    justify-content: center;
+    padding-top: 6rem;
+}
 .search-input{ 
     text-align: center;
     position: absolute;
